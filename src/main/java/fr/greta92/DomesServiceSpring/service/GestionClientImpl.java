@@ -1,28 +1,20 @@
 package fr.greta92.DomesServiceSpring.service;
 
-import org.apache.tomcat.util.bcel.Const;
-import org.mindrot.jbcrypt.BCrypt;
-
-import fr.greta92.domesServices.dao.ClientDao;
-import fr.greta92.domesServices.entity.Client;
-import fr.greta92.domesServices.exception.CompteDejaExistantException;
-import fr.greta92.domesServices.exception.WrongEmailOrPasswordExecption;
-import jakarta.annotation.Resource;
-import jakarta.ejb.Stateless;
-import jakarta.enterprise.context.RequestScoped;
-import jakarta.inject.Inject;
+import fr.greta92.DomesServiceSpring.entity.Client;
+import fr.greta92.DomesServiceSpring.exception.WrongEmailOrPasswordExecption;
+import fr.greta92.DomesServiceSpring.exception.CompteDejaExistantException;
+import fr.greta92.DomesServiceSpring.repository.ClientRepo;
 import jakarta.persistence.NoResultException;
 
 
-@Stateless
+
 public class GestionClientImpl implements GestionClient {
-	
-	@Inject
-	ClientDao clientDao;
+
+	ClientRepo clientRepo;
 	
 	@Override
 	public Client login(String email, String password) throws WrongEmailOrPasswordExecption {
-		return clientDao.login(email, password);
+		return clientRepo.getByEmail(email);
 	}
 
 	@Override
@@ -30,13 +22,13 @@ public class GestionClientImpl implements GestionClient {
 		// TODO Auto-generated method stub
 		
 		try {
-			Client oldClient = clientDao.returnClient(client.getEmail());
+			Client oldClient = clientRepo.getByEmail(client.getEmail());
 			throw new CompteDejaExistantException();
 		} catch (NoResultException e) {
 			
 		}
 		
-		clientDao.ajouterClient(client);
+		clientRepo.save(client);
 	}
 
 	@Override

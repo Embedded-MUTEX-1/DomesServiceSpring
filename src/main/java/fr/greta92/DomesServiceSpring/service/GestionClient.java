@@ -1,5 +1,9 @@
 package fr.greta92.DomesServiceSpring.service;
 
+import fr.greta92.DomesServiceSpring.entity.Client;
+import fr.greta92.DomesServiceSpring.exception.CompteDejaExistantException;
+import fr.greta92.DomesServiceSpring.exception.WrongEmailOrPasswordExecption;
+
 public interface GestionClient {
 	public Client login(String email, String password) throws WrongEmailOrPasswordExecption;
 	public Client returnClient(String email);

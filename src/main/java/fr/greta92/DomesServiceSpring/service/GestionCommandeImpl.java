@@ -1,6 +1,6 @@
 package fr.greta92.DomesServiceSpring.service;
 
-import fr.greta92.domesServices.entity.Commande;
+import fr.greta92.DomesServiceSpring.entity.Commande;
 
 public class GestionCommandeImpl implements GestionCommande {
 
