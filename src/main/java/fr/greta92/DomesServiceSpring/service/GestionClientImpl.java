@@ -5,16 +5,31 @@ import fr.greta92.DomesServiceSpring.exception.WrongEmailOrPasswordExecption;
 import fr.greta92.DomesServiceSpring.exception.CompteDejaExistantException;
 import fr.greta92.DomesServiceSpring.repository.ClientRepo;
 import jakarta.persistence.NoResultException;
+import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 
-
+@Service
 public class GestionClientImpl implements GestionClient {
 
+	@Autowired
 	ClientRepo clientRepo;
 	
 	@Override
 	public Client login(String email, String password) throws WrongEmailOrPasswordExecption {
-		return clientRepo.getByEmail(email);
+
+		Client client = clientRepo.getByEmail(email);
+
+		if(client == null) {
+			throw new WrongEmailOrPasswordExecption();
+		}
+		else if(BCrypt.checkpw(password, client.getPassword())){
+			return client;
+		}
+		else {
+			throw new WrongEmailOrPasswordExecption();
+		}
 	}
 
 	@Override
