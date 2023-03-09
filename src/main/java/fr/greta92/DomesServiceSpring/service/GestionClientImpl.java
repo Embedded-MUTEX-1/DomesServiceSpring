@@ -38,7 +38,10 @@ public class GestionClientImpl implements GestionClient {
 		
 		try {
 			Client oldClient = clientRepo.getByEmail(client.getEmail());
-			throw new CompteDejaExistantException();
+			if(oldClient != null)
+			{
+				throw new CompteDejaExistantException();
+			}
 		} catch (NoResultException e) {
 			
 		}

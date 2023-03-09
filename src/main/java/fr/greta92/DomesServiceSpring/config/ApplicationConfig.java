@@ -13,15 +13,15 @@ import org.springframework.web.servlet.view.JstlView;
 public class ApplicationConfig extends WebMvcConfigurationSupport {
     @Override
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("css/**", "images/**").addResourceLocations("classpath:/static/css", "classpath:/static/images/");
+        registry.addResourceHandler("css/**", "img/**").addResourceLocations("classpath:/static/css/", "classpath:/static/img/");
     }
     @Bean
     public InternalResourceViewResolver jspViewResolver()
     {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+        viewResolver.setViewClass(JstlView.class);
         viewResolver.setPrefix("/WEB-INF/jsp/");
         viewResolver.setSuffix(".jsp");
-        viewResolver.setViewClass(JstlView.class);
         return viewResolver;
     }
 }

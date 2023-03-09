@@ -1,0 +1,300 @@
+html, 
+body {
+    height: 100%;
+    margin: 0;
+}
+#separator
+{
+    width: fit-content;
+    height: 72px;
+}
+footer
+{
+    background-color: #eff9b5;
+    min-height: 45px;
+    text-align: center;
+}
+footer > div
+{
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.navbar
+{
+    padding: 0;
+    background-color: #d6eefe;
+}
+.navbar-brand img
+{
+    width: 37px;
+    border-radius: 50px;
+}
+.nav-item
+{
+    margin-left: 7%;
+    margin-right: 10%;
+}
+.nav-link
+{
+    width: 10vw;
+    border: 1px solid #ced4da;
+    border-radius: 20px;
+    background-color: #95e5aa;
+    text-align: center;
+}
+button > img
+{
+    height: 30px;
+}
+.d-flex > .form-control
+{
+    border-radius: 30px;
+    background-color: #e7b37a;
+}
+a > img
+{
+    height: 50px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.carousel-item img
+{
+    border: 3px solid #d6eefe;
+    border-radius: 50px;
+}
+.container .row .col-lg a
+{
+    margin-bottom: auto;
+    text-decoration: none;
+    color: #8d9195;
+}
+.bouton
+{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+}
+.bouton .btn
+{
+    border: 1px solid #ced4da;
+    border-radius: 50px;
+    background: #8d9bc6;
+    width: 350px;
+    height: 60px;
+    font-size: x-large;
+
+}
+#bt-supprimer
+{
+    background: #efada9;
+}
+#faq
+{
+    text-align: center;
+}
+.overflow-scroll
+{
+    text-align: center;
+    height: 300px;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.content
+{
+    align-items: center;
+    width: 95%;
+    height: auto;
+    border: 0px solid #ced4da;
+    border-radius: 25px;
+    background: #d6eefe;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+.align
+{
+    align-items: center;
+    height: auto;
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.overflow-scroll h6,p
+{
+    text-align: left;
+    font-size: x-large;
+    border: 0px solid #ced4da;
+    border-radius: 25px;
+    width: 400px;
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    display: inline-block;
+}
+.overflow-scroll h6
+{
+    background: #8d9bc6;
+}
+.overflow-scroll p
+{
+    background: #8ae5d1;
+    height: 200px;
+}
+.div-contact
+{
+    text-align: center;
+}
+.map img
+{
+    width: 400px;
+    height: auto;
+}
+.title-contact
+{
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.title-contact
+{
+    text-align: left;
+}
+.contact
+{
+    margin-bottom: 10px;
+}
+.contact img
+{
+    width: 50px;
+    height: auto;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+@media screen and (min-width: 576px) and (max-width: 768px)
+{
+ul
+{
+    align-items: center;
+}
+.nav-link
+{
+    width: 40vw;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    background-color: #95e5aa;
+    text-align: center;
+}
+.connexion
+{
+    font-size: 15px;
+}
+}
+@media screen and (max-width: 576px)
+{
+.navbar
+{
+    width: 100%;
+}
+ul
+{
+    align-items: center;
+}
+.nav-link
+{
+    width: 50vw;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    background-color: #95e5aa;
+    text-align: center;
+}
+.bouton
+{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+}
+.bouton .btn
+{
+    border: 1px solid #ced4da;
+    border-radius: 50px;
+    background: #8d9bc6;
+    width: 250px;
+    height: 60px;
+    font-size: medium;
+
+}
+#bt-supprimer
+{
+    background: #efada9;
+}
+#faq
+{
+    text-align: center;
+}
+.overflow-scroll
+{
+    text-align: center;
+    height: 300px;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.content
+{
+    align-items: center;
+    width: 95%;
+    height: auto;
+    border: 0px solid #ced4da;
+    border-radius: 25px;
+    background: #d6eefe;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+.align
+{
+    align-items: center;
+    height: auto;
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.overflow-scroll h6,p
+{
+    text-align: left;
+    font-size: medium;
+    border: 0px solid #ced4da;
+    border-radius: 25px;
+    width: 200px;
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    display: inline-block;
+}
+.overflow-scroll h6
+{
+    background: #8d9bc6;
+}
+.overflow-scroll p
+{
+    background: #8ae5d1;
+    height: 150px;
+}
+.map img
+{
+    width: 300px;
+    height: auto;
+}
+.title-contact
+{
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+}

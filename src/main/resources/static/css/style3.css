@@ -1,0 +1,179 @@
+html, 
+body {
+    height: 100%;
+    margin: 0;
+}
+#separator
+{
+    width: fit-content;
+    height: 72px;
+}
+footer
+{
+    background-color: #eff9b5;
+    min-height: 45px;
+    text-align: center;
+}
+footer > div
+{
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.navbar
+{
+    padding: 0;
+    background-color: #d6eefe;
+}
+.navbar-brand img
+{
+    width: 37px;
+    border-radius: 50px;
+}
+.nav-item
+{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.nav-link
+{
+    width: 10vw;
+    border: 1px solid #ced4da;
+    border-radius: 20px;
+    background-color: #95e5aa;
+    text-align: center;
+}
+button > img
+{
+    height: 30px;
+}
+.d-flex > .form-control
+{
+    border-radius: 30px;
+    background-color: #e7b37a;
+}
+footer a > img
+{
+    height: 50px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.carousel-item img
+{
+    border: 3px solid #d6eefe;
+    border-radius: 50px;
+    margin: auto;
+    width: 50%;
+}
+#carouselExampleControls .carousel-control-prev
+{
+    margin-left: 20%;
+}
+#carouselExampleControls .carousel-control-next
+{
+    margin-right: 20%;
+}
+.category
+{
+    width: 200px;
+    height: auto;
+}
+.div-category
+{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#a1
+{
+    margin-left: 32%;
+}
+#a2
+{
+    margin-right: 32%;
+}
+.container .row .col-lg a
+{
+    margin-bottom: auto;
+    text-decoration: none;
+    color: #8d9195;
+}
+.connexion
+{
+    font-size: 15px;
+}
+@media screen and (min-width: 576px) and (max-width: 768px)
+{
+    ul
+    {
+        align-items: center;
+    }
+    .nav-link
+    {
+       width: 40vw;
+       margin-bottom: 10px;
+       border-radius: 20px;
+       background-color: #95e5aa;
+       text-align: center;
+    }
+    .carousel-item img
+    {
+        width: 70%;
+    }
+    #carouselExampleControls .carousel-control-prev
+    {
+        margin-left: 10%;
+    }
+    #carouselExampleControls .carousel-control-next
+    {
+        margin-right: 10%;
+    }
+}
+@media screen and (max-width: 576px)
+{
+    ul
+    {
+        align-items: center;
+    }
+    .nav-link
+    {
+       width: 50vw;
+       margin-bottom: 10px;
+       border-radius: 20px;
+       background-color: #95e5aa;
+       text-align: center;
+    }
+    .carousel-item img
+    {
+        width: 70%;
+    }
+    #carouselExampleControls .carousel-control-prev
+    {
+        margin-left: 10%;
+    }
+    #carouselExampleControls .carousel-control-next
+    {
+        margin-right: 10%;
+    }
+    .category
+    {
+        width: 150px;
+        height: auto;
+    }
+    .div-category
+    {
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    #a1
+    {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #a2
+    {
+        margin-right: auto;
+        margin-left: auto;
+    }
+}

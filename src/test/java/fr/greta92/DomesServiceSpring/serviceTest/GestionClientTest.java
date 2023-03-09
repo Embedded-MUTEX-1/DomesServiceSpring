@@ -1,6 +1,7 @@
 package fr.greta92.DomesServiceSpring.serviceTest;
 
 import fr.greta92.DomesServiceSpring.entity.Client;
+import fr.greta92.DomesServiceSpring.exception.CompteDejaExistantException;
 import fr.greta92.DomesServiceSpring.exception.WrongEmailOrPasswordExecption;
 import fr.greta92.DomesServiceSpring.repository.ClientRepo;
 import fr.greta92.DomesServiceSpring.service.GestionClient;
@@ -32,6 +33,23 @@ public class GestionClientTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.initMocks(this);
+    }
+
+    @Test
+    void creationCompteTest()
+    {
+        Client client = new
+                Client(0, "test", "test", "password", "test_1@gmail.com", "06 06 06 06 06", true, null, null);
+
+        try {
+            gestionClient.ajouterClient(client);
+        } catch (CompteDejaExistantException e) {
+            fail("CompteDejaExistantException");
+        }
+    }
+    @Test
+    void creationCompteExecption(){
+
         Mockito.when(clientRepo.getByEmail("test@gmail.com")).thenReturn(new Client(
                 0,
                 "test",
@@ -42,11 +60,30 @@ public class GestionClientTest {
                 true,
                 null,
                 null));
+
+        try {
+            gestionClient.ajouterClient(new
+                    Client(0, "test", "test", "password", "test@gmail.com", "06 06 06 06 06", true, null, null));
+            fail("CompteDejaExistantException non levée");
+        } catch (CompteDejaExistantException e) {
+
+        }
     }
 
     @Test
     void loginTest()
     {
+        Mockito.when(clientRepo.getByEmail("test@gmail.com")).thenReturn(new Client(
+                0,
+                "test",
+                "test",
+                "$2a$10$DNgRoQy12U5MxmoffZaoIOHSa.IrdIVZAwiZRzZY1bwiVdk1Cg0eq",
+                "test@gmail.com",
+                "06 06 06 06 06",
+                true,
+                null,
+                null));
+
         try {
             Client client = gestionClient.login("test@gmail.com", "12345678");
             assertThat(client).isNotNull();
@@ -56,6 +93,18 @@ public class GestionClientTest {
     }
     @Test
     void loginTestExecption(){
+
+        Mockito.when(clientRepo.getByEmail("test@gmail.com")).thenReturn(new Client(
+                0,
+                "test",
+                "test",
+                "$2a$10$DNgRoQy12U5MxmoffZaoIOHSa.IrdIVZAwiZRzZY1bwiVdk1Cg0eq",
+                "test@gmail.com",
+                "06 06 06 06 06",
+                true,
+                null,
+                null));
+
         try {
             gestionClient.login("test@gmail.com", "wrongPassword");
             fail("WrongEmailOrPasswordExecption non levée");

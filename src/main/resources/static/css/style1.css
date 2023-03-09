@@ -1,0 +1,122 @@
+html, 
+body {
+    height: max-content;
+    
+    margin: 0;
+}
+#main
+{
+    display: flex;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+#border
+{
+    background-color: white;
+    border: 2px solid #D6EEFE;
+    margin-top: 50%;
+    margin-bottom: 50%;
+    text-align: center;
+    border-radius: 50px;
+}
+#form
+{
+    display: inline;
+    width: 37%;
+}
+#logo
+{
+    display: inline;
+    background-color: #D6EEFE;
+    text-align: center;
+    width: 50%;
+}
+img
+{
+    padding: 0;
+    width: 200px;
+    height: 200px;
+    margin-top: 50%;
+    margin-bottom: auto;
+}
+form
+{
+    height: 100%;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+h2
+{
+    text-align: center;
+    color: #D6EEFE;
+}
+.btn
+{
+    background-color: #D6EEFE;
+    border-radius: 50px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.form-label
+{
+    display: inherit;
+    text-align: left;
+    color: #D6EEFE;
+}
+#btn_d
+{
+    height: 10%;
+}
+#a1_b
+{
+    margin-right: 25%;
+}
+#a2_b
+{
+    margin-left: 25%;
+}
+.btn_b1
+{
+    width: 50px;
+    height: 50px;
+    margin: 0;
+}
+.btn_b2
+{
+    width: 50px;
+    height: 50px;
+    margin: 0;
+}
+@media screen and (max-width: 768px) {
+    #logo
+    {
+        display: none;
+    }
+    #form
+    {
+       display: inline;
+       width: 80%;
+    }
+    form
+    {
+       height: 100%;
+       width: 80%;
+       margin-left: auto;
+       margin-right: auto;
+    }
+    .btn_b1
+    {
+       width: 30px;
+       height: 30px;
+       margin: 0;
+    }
+    .btn_b2
+    {
+       width: 30px;
+       height: 30px;
+       margin: 0;
+    }
+}

@@ -25,7 +25,7 @@ public class ClientRepoTest {
         //when
         Client client = clientRepo.getByEmail("test@gmail.com");
         //then
-        then(client.getNumClient()).isNotNull();
+        then(client).isNotNull();
         then(client.getEmail()).isEqualTo(saveClients.getEmail());
     }
 }
