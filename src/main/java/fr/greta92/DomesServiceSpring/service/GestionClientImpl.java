@@ -45,7 +45,13 @@ public class GestionClientImpl implements GestionClient {
 		} catch (NoResultException e) {
 			
 		}
-		
+
+		String password = client.getPassword();
+
+		password = BCrypt.hashpw(password, BCrypt.gensalt());
+
+		client.setPassword(password);
+
 		clientRepo.save(client);
 	}
 

@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,24 +18,26 @@
                 </div>
                 <div id="form" class="container">
                     <div id="border">
-                        <form action="/SeConnecter" method="post" class="mb-3">
+                        <form:form action="/Connexion_" modelAttribute="user" cssClass="mb-3">
                             <h2>Se connecter</h2>
                               <div class="mb-3">
-                                <input type="email" id="exampleInputEmail1" class="form-control" placeholder="Email" name="email">
+                                <form:input path="email" cssClass="form-control" placeholder="Email" />
+                                <form:errors path="email" cssClass="error"/>
                               </div>
                               <div class="mb-3">
-                                <input type="password" id="password"class="form-control" placeholder="Mot de passe" name="password">
+                                <form:input path="password" cssClass="form-control" placeholder="Mot de passe" />
+                                <form:errors path="password" cssClass="error"/>
                               </div>
                               <div>
                                  <button type="submit" class="btn">Connexion</button>
                               </div>
-                        </form>
+                        </form:form>
                         <div class="mb-3">
-                            <a href="/DomesService/pageCreerCompte.html"><button class="btn">Creer un compte</button></a>
+                            <a href="/CreerCompte"><button class="btn">Creer un compte</button></a>
                         </div>
                         <div id="btn_d" class="mb-2">
-                            <a href="/DomesService/accueil.html" id="a1_b"><img src="/img/btn_accueil.png"  class="btn_b1" alt="Bouton accueil"></a>
-                            <a href="/DomesService/aideCompte.html" id="a2_b"><img src="/img/btn_aide.png" class="btn_b2" alt="Bouton aide"></a>
+                            <a href="/Accueil" id="a1_b"><img src="/img/btn_accueil.png"  class="btn_b1" alt="Bouton accueil"></a>
+                            <a href="/AideCompte" id="a2_b"><img src="/img/btn_aide.png" class="btn_b2" alt="Bouton aide"></a>
                         </div>
                     </div>
                 </div>

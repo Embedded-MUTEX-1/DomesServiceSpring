@@ -73,11 +73,11 @@ public class CreationCompte {
             gestionClient.ajouterClient(client);
         } catch (CompteDejaExistantException e) {
             System.out.println("CompteDejaExistantException");
-            return "pageCreerCompte";
+            return "redirect:/pageCreerCompte";
         }
 
         System.out.println("No Errors");
 
-        return "pageConnexion";
+        return "redirect:/Connexion";
     }
 }
