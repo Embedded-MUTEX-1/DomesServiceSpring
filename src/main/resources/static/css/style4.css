@@ -61,11 +61,10 @@ button > img
     border: 3px solid #d6eefe;
     border-radius: 50px;
 }
-.container .row .col-lg a
-{
-    margin-bottom: auto;
-    text-decoration: none;
-    color: #8d9195;
+footer a > img {
+    height: 50px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 .formTrierFiltrer
 {

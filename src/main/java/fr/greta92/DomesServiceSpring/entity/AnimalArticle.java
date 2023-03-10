@@ -1,14 +1,6 @@
 package fr.greta92.DomesServiceSpring.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.NamedQuery;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 /**
  * 
@@ -27,22 +19,20 @@ public class AnimalArticle {
     /**
      * 
      */
+	@Column(name = "nom")
     private String name;
 
     /**
      * 
      */
+	@Column(name = "prix")
     private double price;
 
     /**
      * 
      */
+	@Column(name = "url")
     private String imgUrl;
-
-    /**
-     * 
-     */
-    private String category;
 
     /**
      * 
@@ -73,14 +63,13 @@ public class AnimalArticle {
     public AnimalArticle() {
     }
     
-    public AnimalArticle(int ref, String name, double price, String imgUrl, String category, int age,
+    public AnimalArticle(int ref, String name, double price, String imgUrl, int age,
 			String description, boolean disponible, Commande commande, Race race) {
 		super();
 		this.ref = ref;
 		this.name = name;
 		this.price = price;
 		this.imgUrl = imgUrl;
-		this.category = category;
 		this.age = age;
 		this.description = description;
 		this.disponible = disponible;
@@ -118,14 +107,6 @@ public class AnimalArticle {
 
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
-	}
-
-	public String getCategory() {
-		return category;
-	}
-
-	public void setCategory(String category) {
-		this.category = category;
 	}
 
 	public int getAge() {

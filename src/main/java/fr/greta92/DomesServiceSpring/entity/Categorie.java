@@ -28,7 +28,7 @@ public class Categorie {
      */
     private String categorie;
     @OneToMany(mappedBy = "categorie")
-    private ArrayList<Race> races;
+    private List<Race> races;
 
     /**
      * Default constructor
@@ -36,7 +36,7 @@ public class Categorie {
     public Categorie() {
     }
     
-	public Categorie(int id, String categorie, ArrayList<Race> races) {
+	public Categorie(int id, String categorie, List<Race> races) {
 		super();
 		this.id = id;
 		this.categorie = categorie;
@@ -59,11 +59,11 @@ public class Categorie {
 		this.categorie = categorie;
 	}
 
-	public ArrayList<Race> getRaces() {
+	public List<Race> getRaces() {
 		return races;
 	}
 
-	public void setRaces(ArrayList<Race> races) {
+	public void setRaces(List<Race> races) {
 		this.races = races;
 	}
 }
