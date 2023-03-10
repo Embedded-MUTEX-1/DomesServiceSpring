@@ -36,8 +36,8 @@ footer > div
 }
 .nav-item
 {
-    margin-left: 7%;
-    margin-right: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 .nav-link
 {
@@ -55,12 +55,6 @@ button > img
 {
     border-radius: 30px;
     background-color: #e7b37a;
-}
-a > img
-{
-    height: 50px;
-    margin-top: 5px;
-    margin-bottom: 5px;
 }
 .carousel-item img
 {
