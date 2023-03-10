@@ -29,16 +29,16 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="pageAccueil.html">Accueil</a>
+                    <a class="nav-link active" aria-current="page" href="/Accueil">Accueil</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="pageAideCompte.html">Aide</a>
+                    <a class="nav-link" href="/AideCompte">Aide</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="pageAideCompte.html">Compte</a>
+                    <a class="nav-link" href="/AideCompte.html">Compte</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="pagePanier.html">Panier</a>
+                    <a class="nav-link" href="/Panier">Panier</a>
                   </li>
                 </ul>
                 <form class="d-flex">
@@ -83,24 +83,24 @@
             </div>
             <div class="row">
               <div class="col-12 col-md-6 div-category">
-                <a href="/CategorieRechercheServ?categorie=Chiens" id="a1"><img class="category" src="/img/chiens.png" alt="Photo chien"></a>
+                <a href="/Categorie?categorie=Chiens" id="a1"><img class="category" src="/img/chiens.png" alt="Photo chien"></a>
               </div>
 
               <div class="col-12 col-md-6 div-category">
-                <a href="/CategorieRechercheServ?categorie=Chats" id="a2"><img class="category" src="/img/chats.png" alt="Photo chat"></a>
+                <a href="/Categorie?categorie=Chats" id="a2"><img class="category" src="/img/chats.png" alt="Photo chat"></a>
               </div>
             </div>
             <div class="row">
               <div class="col-12 col-md-4 div-category">
-                <a href="/CategorieRechercheServ?categorie=Oiseaux"><img class="category" src="/img/Oiseaux.png" alt="Photo chien"></a>
+                <a href="/Categorie?categorie=Oiseaux"><img class="category" src="/img/Oiseaux.png" alt="Photo chien"></a>
               </div>
 
               <div class="col-12 col-md-4 div-category">
-                <a href="/CategorieRechercheServ?categorie=Poissons"><img class="category" src="/img/Poissons.png" alt="Photo chien"></a>
+                <a href="/Categorie?categorie=Poissons"><img class="category" src="/img/Poissons.png" alt="Photo chien"></a>
               </div>
 
               <div class="col-12 col-md-4 div-category">
-                <a href="/CategorieRechercheServ?categorie=Reptiles"><img class="category" src="/img/Reptiles.png" alt="Photo chien"></a>
+                <a href="/Categorie?categorie=Reptiles"><img class="category" src="/img/Reptiles.png" alt="Photo chien"></a>
               </div>
             </div>
         </div>

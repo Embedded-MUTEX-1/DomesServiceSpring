@@ -33,7 +33,7 @@
                               </div>
                         </form:form>
                         <div class="mb-3">
-                            <a href="/CreerCompte"><button class="btn">Creer un compte</button></a>
+                            <a href="/CreationCompte"><button class="btn">Creer un compte</button></a>
                         </div>
                         <div id="btn_d" class="mb-2">
                             <a href="/Accueil" id="a1_b"><img src="/img/btn_accueil.png"  class="btn_b1" alt="Bouton accueil"></a>

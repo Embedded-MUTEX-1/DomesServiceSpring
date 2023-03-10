@@ -18,7 +18,7 @@
               <a class="navbar-brand" href="#"><img src="/img/logo.png" alt="Logo DomesService"></a>
               <c:choose>  
 	              <c:when test="${empty client}" >
-	              	<p class="navbar-brand m-auto connexion"><a class="navbar-brand" href="Connexion">Se connecter</a></p>
+	              	<p class="navbar-brand m-auto connexion"><a class="navbar-brand connexion" href="Connexion">Se connecter</a></p>
 	              </c:when>
 	              <c:when test="${!empty client}" >
 	              	<p class="navbar-brand m-auto connexion"><c:out value="${client.nom}" /></p>
@@ -30,16 +30,16 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/DomesServices/pageAccueil.html">Accueil</a>
+                    <a class="nav-link active" aria-current="page" href="/Accueil">Accueil</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/DomesServices/pageAideCompte.html">Aide</a>
+                    <a class="nav-link" href="/AideCompte">Aide</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/DomesServices/pageAideCompte.html">Compte</a>
+                    <a class="nav-link" href="/AideCompte">Compte</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/DomesServices/pagePanier.html">Panier</a>
+                    <a class="nav-link" href="/Panier">Panier</a>
                   </li>
                 </ul>
                 <form class="d-flex">
@@ -62,7 +62,7 @@
 
     <main>
         <div class="trier-filtrer">
-          <form action="/DomesService/TrierFilter" method="post" class="formTrierFiltrer">
+          <form action="/TrierFilterAnimal" method="post" class="formTrierFiltrer">
             
             <select class="form-select btn-filtrerTrier" name="trier">
               <option value="0" selected>Trier</option>
@@ -98,7 +98,21 @@
 
                     <select class="form-select" name="filtrer" size="5" aria-label="Default select example" id="categorie_race">
                       <option value="None" selected>Category/Race</option>
-                      <!-- Ã  remplir avec du javascript
+                      <optgroup label="CatÃ©gorie">
+                        <c:forEach items="${ categorieList }" var="item">
+                            <option value="${ item.categorie }"><c:out value="${ item.categorie }" /></option>
+                        </c:forEach>
+                      </optgroup>
+
+                      <c:forEach items="${ categorieList }" var="item">
+                        <optgroup label="${ item.categorie }">
+                            <c:forEach items="${ item.categorie.races }" var="itemRace">
+                                <option value="${ itemRace.race }"><c:out value="${ itemRace.race }" /></option>
+                            </c:forEach>
+                        </optgroup>
+                      </c:forEach>
+
+                      <!-- A remplir avec du javascript
                       <optgroup label="CatÃ©gorie">
                         <option value="Chiens">Chiens</option>
                         <option value="Chats">Chats</option>
