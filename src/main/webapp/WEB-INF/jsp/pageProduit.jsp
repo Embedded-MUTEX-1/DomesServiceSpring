@@ -13,34 +13,41 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg  fixed-top">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#"><img src="/img/logo.png" alt="Logo DomesService"></a>
-              <p class="navbar-brand m-auto"><!-- a remplir automatiquement --></p>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/DomesServices/pageAccueil.html">Accueil</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/DomesServices/pageAideCompte.html">Aide</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/DomesServices/pageAideCompte.html">Compte</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/DomesServices/pagePanier.html">Panier</a>
-                  </li>
-                </ul>
-                <form class="d-flex">
-                  <input class="form-control" type="search" placeholder="Recherche" aria-label="Search">
-                  <button class="btn" type="submit"><img src="/img/btn recherche.png" alt="Bouton recherche"></button>
-                </form>
-              </div>
-            </div>
-          </nav>
+                    <div class="container-fluid">
+                      <a class="navbar-brand" href="#"><img src="/img/logo.png" alt="Logo DomesService"></a>
+                      <c:choose>
+        	              <c:when test="${empty client}" >
+        	              	<p class="navbar-brand m-auto connexion"><a class="navbar-brand connexion" href="Connexion">Se connecter</a></p>
+        	              </c:when>
+        	              <c:when test="${!empty client}" >
+        	              	<p class="navbar-brand m-auto connexion"><c:out value="${client.nom}" /></p>
+        	              </c:when>
+                      </c:choose>
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                          <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/Accueil">Accueil</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/AideCompte">Aide</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/AideCompte">Compte</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/Panier">Panier</a>
+                          </li>
+                        </ul>
+                        <form class="d-flex">
+                          <input class="form-control" type="search" placeholder="Recherche" aria-label="Search">
+                          <button class="btn" type="submit"><img src="/img/btn recherche.png" alt="Bouton recherche"></button>
+                        </form>
+                      </div>
+                    </div>
+        </nav>
     </header>
 
     <div id="separator">
@@ -52,24 +59,22 @@
         <div class="container-fluid article">
           <div class="row ">
             <div class="col-12">
-              <h1 id="name">Alvin</h1>
+              <h1 id="name"><c:out value="${article.name}" /></h1>
             </div>
           </div>
 
           <div class="row">
-            <div class="col-12 col-lg-6">
-              <img src="/img/Photo Alvin.png" alt="Photo article" id="photo-article">
+            <div class="col-12 col-lg-6 text-center">
+              <img src="${article.imgUrl}" alt="Photo article" id="photo-article">
             </div>
 
             <div class="col-12 col-lg-6 content-desc">
               <div id="article-desc" class="text-start">
                 <h2 class="text-center">Description :</h2>
-                <p>Je suis trop minion donc achète moi, si tu le fait pas j’irais hanter tes rêves.
-                  Poids : 100 kg
-                  Dimension : 10 x 10 x 10 cm</p>
+                <p><c:out value="${article.description}" /></p>
                 <p>
-                  Race : <span id="race">chat</span><br>
-                  Age : <span id="age">5</span>ans
+                  Race : <span id="race"><c:out value="${race.race}" /></span><br>
+                  Age : <span id="age"><c:out value="${article.age}" /></span>ans
                 </p>
               </div>
             </div>
@@ -77,8 +82,8 @@
 
           <div class="row">
             <div class="col-12">
-              <div>
-                <button>Ajouter au panier pour <span id="price">100</span>€ <img src="/img/icone panier.png" alt="Icone panier" id="Icone-panier"></button>
+              <div  class="text-center">
+                <button>Ajouter au panier pour <span id="price"><c:out value="${article.price}" /></span>€ <img src="/img/icone panier.png" alt="Icone panier" id="Icone-panier"></button>
               </div>
             </div>
           </div>

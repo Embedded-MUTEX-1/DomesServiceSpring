@@ -2,12 +2,7 @@ package fr.greta92.DomesServiceSpring.entity;
 
 import java.util.*;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 /**
  * 
@@ -27,7 +22,7 @@ public class Categorie {
      * 
      */
     private String categorie;
-    @OneToMany(mappedBy = "categorie")
+    @OneToMany(mappedBy = "categorie", fetch = FetchType.EAGER)
     private List<Race> races;
 
     /**

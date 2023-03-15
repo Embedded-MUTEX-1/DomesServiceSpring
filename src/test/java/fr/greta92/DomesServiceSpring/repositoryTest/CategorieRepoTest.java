@@ -25,12 +25,12 @@ public class CategorieRepoTest {
 
     @Test
     void testFindByCategorieName_returnCategorie() {
-        Categorie saveCategorieChiens = new Categorie(0, "Chiens", null);
-        saveCategorieChiens = testEntityManager.persistAndFlush(saveCategorieChiens);
+        Categorie saveCategorie = new Categorie(0, "Reptile", null);
+        saveCategorie = testEntityManager.persistAndFlush(saveCategorie);
 
-        Categorie categorie = categorieRepo.findByCategorie("Chiens");
+        Categorie categorie = categorieRepo.findByCategorie("Reptile");
 
         then(categorie).isNotNull();
-        then(categorie.getCategorie()).isEqualTo("Chiens");
+        then(categorie.getCategorie()).isEqualTo("Reptile");
     }
 }

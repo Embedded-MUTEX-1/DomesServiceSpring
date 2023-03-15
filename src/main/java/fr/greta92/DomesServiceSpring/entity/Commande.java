@@ -2,15 +2,7 @@ package fr.greta92.DomesServiceSpring.entity;
 
 import java.util.*;
 
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 /**
  * 
@@ -24,12 +16,13 @@ public class Commande {
      */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int refCommande;
+    private int ref;
 
     /**
      * 
      */
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "numero_client")
     private Client client;
 
     /**
@@ -52,10 +45,10 @@ public class Commande {
     public Commande() {
     }
 
-	public Commande(int refCommande, Client client, Date date, String status, ArrayList<AnimalArticle> articles,
+	public Commande(int ref, Client client, Date date, String status, ArrayList<AnimalArticle> articles,
 			Adresse adresse) {
 		super();
-		this.refCommande = refCommande;
+		this.ref = ref;
 		this.client = client;
 		this.date = date;
 		this.status = status;
@@ -64,11 +57,11 @@ public class Commande {
 	}
 
 	public int getRefCommande() {
-		return refCommande;
+		return ref;
 	}
 
 	public void setRefCommande(int refCommande) {
-		this.refCommande = refCommande;
+		this.ref = refCommande;
 	}
 
 	public Client getClient() {

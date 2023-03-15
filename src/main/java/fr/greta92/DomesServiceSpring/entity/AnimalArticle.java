@@ -1,5 +1,6 @@
 package fr.greta92.DomesServiceSpring.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 /**
@@ -48,11 +49,13 @@ public class AnimalArticle {
      * 
      */
     private boolean disponible;
-    
-    @ManyToOne(fetch = FetchType.EAGER)
+
+	@JsonIgnore
+    @ManyToOne
     @JoinColumn(name="id_commande")
     private Commande commande;
-    
+
+	@JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="id_race")
     private Race race;
@@ -125,7 +128,7 @@ public class AnimalArticle {
 		this.description = description;
 	}
 
-	public boolean isDisponible() {
+	public boolean getDisponible() {
 		return disponible;
 	}
 

@@ -13,7 +13,7 @@ import org.springframework.web.servlet.view.JstlView;
 public class ApplicationConfig extends WebMvcConfigurationSupport {
     @Override
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("css/**", "img/**", "js/**").addResourceLocations("classpath:/static/css/", "classpath:/static/img/", "classpath:/static/js/");
+        registry.addResourceHandler("css/**", "img/**", "js/**", "img_articles/**").addResourceLocations("classpath:/static/css/", "classpath:/static/img/", "classpath:/static/js/", "classpath:/static/img_articles/");
     }
     @Bean
     public InternalResourceViewResolver jspViewResolver()

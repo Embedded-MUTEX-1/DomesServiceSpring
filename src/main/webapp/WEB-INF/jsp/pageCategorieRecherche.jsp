@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/style4.css">
-    <title>CatÃ©gorie et recherche</title>
+    <title>Catégorie et recherche</title>
 </head>
 <body>
 	<p class="hidden"><c:out value="${categorie}" /></p>
@@ -52,9 +52,9 @@
     </header>
 
   <!--permet au javascript de detecter la 
-      catÃ©gorie ou la race de l'animal
+      catégorie ou la race de l'animal
       lors du chargement de la page -->
-    <div id="categoryRace" class="Chiens"></div> 
+    <div id="categorie"><c:out value="${categorie}" /></div>
 
     <div id="separator">
 
@@ -62,14 +62,14 @@
 
     <main>
         <div class="trier-filtrer">
-          <form action="/TrierFilterAnimal" method="post" class="formTrierFiltrer">
-            
+          <form action="/articles" method="post" class="formTrierFiltrer" id="formArticle">
+
             <select class="form-select btn-filtrerTrier" name="trier">
               <option value="0" selected>Trier</option>
               <option value="1">Prix croissant</option>
-              <option value="2">Prix dÃ©croissant</option>
+              <option value="2">Prix décroissant</option>
               <option value="3">Age croissant</option>
-              <option value="3">Age decroissant</option>
+              <option value="4">Age decroissant</option>
             </select>
 
             <!-- Button trigger modal -->
@@ -97,8 +97,8 @@
                     </div>
 
                     <select class="form-select" name="filtrer" size="5" aria-label="Default select example" id="categorie_race">
-                      <option value="None" selected>Category/Race</option>
-                      <optgroup label="CatÃ©gorie">
+                      <option value="None" selected>Categorie/Race</option>
+                      <optgroup label="Catégorie">
                         <c:forEach items="${ categorieList }" var="item">
                             <option value="${ item.categorie }"><c:out value="${ item.categorie }" /></option>
                         </c:forEach>
@@ -106,7 +106,7 @@
 
                       <c:forEach items="${ categorieList }" var="item">
                         <optgroup label="${ item.categorie }">
-                            <c:forEach items="${ item.categorie.races }" var="itemRace">
+                            <c:forEach items="${ item.races }" var="itemRace">
                                 <option value="${ itemRace.race }"><c:out value="${ itemRace.race }" /></option>
                             </c:forEach>
                         </optgroup>
@@ -157,8 +157,7 @@
             </div>
 
             <div>
-              <button type="submit" class="btn submit submit2
-              ">Appliquer</button>
+              <button type="submit" class="btn submit submit2">Appliquer</button>
             </div>
           </form>
         </div>
@@ -168,10 +167,10 @@
             <div class="article container-fluid" id="12345">
               <div class="row">
                 <div class="col-6 text-center">
-                  <img src="/img/Photo Alvin.png" alt="Photo article" id="photo-article">
+                  <a href="/Animal"><img src="/img/Photo Alvin.png" alt="Photo article" class="photo-article"></a>
                 </div>
                 <div class="col-6 article-desc">
-                  <h2 id="titre-article">Alvin <span id="price-article">1000</span>â¬</h2>
+                  <h2 class="titre-article">Alvin <span class="price-article">1000</span>€</h2>
                   <p>Description : je suis trop minion aaaaaaaaaaaaaaaaa
                     aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                     aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

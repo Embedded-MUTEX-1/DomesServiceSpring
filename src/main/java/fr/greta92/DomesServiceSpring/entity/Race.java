@@ -3,6 +3,7 @@ package fr.greta92.DomesServiceSpring.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -26,15 +27,12 @@ public class Race {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-    /**
-     * 
-     */
     private String race;
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_categorie")
+	@JsonIgnore
     private Categorie categorie;
-    @OneToMany(mappedBy = "race")
+    @OneToMany(mappedBy = "race", fetch = FetchType.EAGER)
     private List<AnimalArticle> animaux;
 
     /**
