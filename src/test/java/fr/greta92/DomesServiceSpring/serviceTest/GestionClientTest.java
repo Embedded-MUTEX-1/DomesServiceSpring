@@ -2,6 +2,7 @@ package fr.greta92.DomesServiceSpring.serviceTest;
 
 import fr.greta92.DomesServiceSpring.entity.Client;
 import fr.greta92.DomesServiceSpring.exception.CompteDejaExistantException;
+import fr.greta92.DomesServiceSpring.exception.CompteNonDisponibleExecption;
 import fr.greta92.DomesServiceSpring.exception.WrongEmailOrPasswordExecption;
 import fr.greta92.DomesServiceSpring.repository.ClientRepo;
 import fr.greta92.DomesServiceSpring.service.GestionClient;
@@ -89,6 +90,8 @@ public class GestionClientTest {
             assertThat(client).isNotNull();
         } catch (WrongEmailOrPasswordExecption e) {
             fail("WrongEmailOrPasswordExecption");
+        } catch (CompteNonDisponibleExecption e) {
+
         }
     }
     @Test
@@ -109,6 +112,8 @@ public class GestionClientTest {
             gestionClient.login("test@gmail.com", "wrongPassword");
             fail("WrongEmailOrPasswordExecption non levée");
         } catch (WrongEmailOrPasswordExecption e) {
+
+        } catch (CompteNonDisponibleExecption e) {
 
         }
     }

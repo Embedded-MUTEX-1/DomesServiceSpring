@@ -130,7 +130,7 @@ public class Client {
 		this.telephone = telephone;
 	}
 
-	public boolean isActif() {
+	public boolean getActif() {
 		return actif;
 	}
 

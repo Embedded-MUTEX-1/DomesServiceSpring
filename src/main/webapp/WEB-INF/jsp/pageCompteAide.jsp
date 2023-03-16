@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,34 +14,41 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg  fixed-top">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#"><img src="/img/logo.png" alt="Logo DomesService"></a>
-              <p class="navbar-brand m-auto"><!-- a remplir automatiquement --></p>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/DomesServices/pageAccueil.html">Accueil</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/DomesServices/pageAideCompte.html">Aide</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/DomesServices/pageAideCompte.html">Compte</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/DomesServices/pagePanier.html">Panier</a>
-                  </li>
-                </ul>
-                <form class="d-flex">
-                  <input class="form-control" type="search" placeholder="Recherche" aria-label="Search">
-                  <button class="btn" type="submit"><img src="/img/btn recherche.png" alt="Bouton recherche"></button>
-                </form>
-              </div>
-            </div>
-          </nav>
+                    <div class="container-fluid">
+                      <a class="navbar-brand" href="#"><img src="/img/logo.png" alt="Logo DomesService"></a>
+                      <c:choose>
+        	              <c:when test="${empty client.nom}" >
+        	              	<p class="navbar-brand m-auto connexion"><a class="navbar-brand connexion" href="Connexion">Se connecter</a></p>
+        	              </c:when>
+        	              <c:when test="${!empty client.nom}" >
+        	              	<p class="navbar-brand m-auto connexion"><c:out value="${client.nom}" /></p>
+        	              </c:when>
+                      </c:choose>
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                          <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/Accueil">Accueil</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/AideCompte">Aide</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/AideCompte">Compte</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/Panier">Panier</a>
+                          </li>
+                        </ul>
+                        <form class="d-flex">
+                          <input class="form-control" type="search" placeholder="Recherche" aria-label="Search">
+                          <button class="btn" type="submit"><img src="/img/btn recherche.png" alt="Bouton recherche"></button>
+                        </form>
+                      </div>
+                    </div>
+                  </nav>
     </header>
 
     <div id="separator">
@@ -86,29 +94,29 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      <form action="" method="post">
+                      <form:form action="/ModifierAdresse" modelAttribute="client">
                         <div class="mb-3">
-                          <label for="nom" class="form-label">Nom adresse</label>
-                          <input type="text" class="form-control" id="nom" name="nom">
+                          <label for="adresseNom" class="form-label">Nom Adresse</label>
+                          <form:input cssClass="form-control" id="adresseNom" path="adresse.addrName" />
                         </div>
                         <div class="mb-3">
-                          <label for="adresse" class="form-label">Adresse</label>
-                          <input type="text" class="form-control" id="adresse" name="adresse">
+                           <label for="adresse" class="form-label">Adresse</label>
+                           <form:input cssClass="form-control" id="adresse" path="adresse.address" />
                         </div>
                         <div class="mb-3">
                           <label for="code_postale" class="form-label">Code postale</label>
-                          <input type="text" class="form-control" id="code_postale" name="code_postale">
+                          <form:input cssClass="form-control" id="code_postale" path="adresse.postalCode" />
                         </div>
                         <div class="mb-3">
                           <label for="ville" class="form-label">Ville</label>
-                          <input type="text" class="form-control" id="ville" name="ville">
+                          <form:input cssClass="form-control" id="ville" path="adresse.city" />
                         </div>
                         <div class="mb-3">
                           <label for="code_postale" class="form-label">Pays</label>
-                          <input type="text" class="form-control" id="code_postale" name="pays">
+                          <form:input cssClass="form-control" id="code_postale" path="adresse.country" />
                         </div>
                         <button type="submit" class="btn">Modifier</button>
-                      </form>
+                      </form:form>
                     </div>
                   </div>
                 </div>
@@ -130,40 +138,37 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      <form action="" method="post">
+                      <form:form action="/ModifierCompte" modelAttribute="client">
                         <div class="mb-3">
                           <label for="mail" class="form-label">Email</label>
-                          <input type="email" class="form-control" id="email" name="email">
-                        </div>
-                        <div class="mb-3">
-                          <label for="mot_de_passe" class="form-label">Mot de passe</label>
-                          <input type="password" class="form-control" id="mot_de_passe" name="mot_de_passe">
+                          <form:input cssClass="form-control" id="email" path="email" />
                         </div>
                         <div class="mb-3">
                           <label for="nom" class="form-label">Nom</label>
-                          <input type="text" class="form-control" id="nom" name="nom">
+                          <form:input cssClass="form-control" id="nom" path="nom" />
                         </div>
                         <div class="mb-3">
                           <label for="prenom" class="form-label">Prenom</label>
-                          <input type="text" class="form-control" id="prenom" name="prenom">
+                          <form:input cssClass="form-control" id="prenom" path="prenom" />
                         </div>
                         <div class="mb-3">
                           <label for="telephone" class="form-label">Télephone</label>
-                          <input type="text" class="form-control" id="telephone" name="telephone">
+                          <form:input cssClass="form-control" id="telephone" path="telephone" />
                         </div>
                         <button type="submit" class="btn">Modifier</button>
+                      </form:form>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="bouton">
-              <button type="button" id="bt-connexion" class="btn">
+              <button type="button" id="bt-connexion" class="btn" onclick="window.location.href='/SeDeconnecter';">
                 Se deconnecter
               </button>
             </div>
             <div class="bouton">
-              <button type="button" id="bt-supprimer" class="btn">
+              <button type="button" id="bt-supprimer" class="btn" onclick="window.location.href='/SupprimerCompte'">
                 Supprimer son compte
               </button>
             </div>

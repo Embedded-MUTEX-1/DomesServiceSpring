@@ -8,6 +8,10 @@ body {
     width: fit-content;
     height: 72px;
 }
+main
+{
+    min-height: calc(100% - 130px);
+}
 footer
 {
     background-color: #eff9b5;
@@ -29,11 +33,12 @@ footer > div
 {
     width: 37px;
     border-radius: 50px;
+    height: unset;
 }
 .nav-item
 {
-    margin-left: 7%;
-    margin-right: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 .nav-link
 {
@@ -42,6 +47,12 @@ footer > div
     border-radius: 20px;
     background-color: #95e5aa;
     text-align: center;
+}
+.connexion
+{
+    width: unset;
+    padding: unset;
+    font-size: 15px;
 }
 button > img
 {
@@ -122,7 +133,7 @@ a > img
     margin-left: auto;
     margin-right: auto;
 }
-.overflow-scroll h6,p
+.overflow-scroll .content .align h6,p
 {
     text-align: left;
     font-size: x-large;
@@ -264,7 +275,7 @@ ul
     margin-left: auto;
     margin-right: auto;
 }
-.overflow-scroll h6,p
+.overflow-scroll .content .align h6,p
 {
     text-align: left;
     font-size: medium;

@@ -1,6 +1,7 @@
 package fr.greta92.DomesServiceSpring.service;
 
 import fr.greta92.DomesServiceSpring.entity.Client;
+import fr.greta92.DomesServiceSpring.exception.CompteNonDisponibleExecption;
 import fr.greta92.DomesServiceSpring.exception.WrongEmailOrPasswordExecption;
 import fr.greta92.DomesServiceSpring.exception.CompteDejaExistantException;
 import fr.greta92.DomesServiceSpring.repository.ClientRepo;
@@ -8,6 +9,7 @@ import jakarta.persistence.NoResultException;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @Service
@@ -17,12 +19,16 @@ public class GestionClientImpl implements GestionClient {
 	ClientRepo clientRepo;
 	
 	@Override
-	public Client login(String email, String password) throws WrongEmailOrPasswordExecption {
+	public Client login(String email, String password) throws WrongEmailOrPasswordExecption, CompteNonDisponibleExecption {
 
 		Client client = clientRepo.getByEmail(email);
 
 		if(client == null) {
 			throw new WrongEmailOrPasswordExecption();
+		}
+		if(!client.getActif())
+		{
+			throw new CompteNonDisponibleExecption();
 		}
 		else if(BCrypt.checkpw(password, client.getPassword())){
 			return client;
@@ -57,26 +63,49 @@ public class GestionClientImpl implements GestionClient {
 
 	@Override
 	public void modifierClient(Client client) {
-		// TODO Auto-generated method stub
-
+		clientRepo.save(client);
 	}
 
 	@Override
 	public void supprimerClient(Client client) {
-		// TODO Auto-generated method stub
+		clientRepo.delete(client);
+	}
 
+	@Override
+	public boolean alreadyExist(Client client) {
+
+		if(returnClient(client.getEmail()) == null)
+		{
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	@Transactional
+	public void modifierProfile(Client client, String prevEmail) {
+		clientRepo.modifierProfile(client.getNom(), client.getPrenom(), client.getEmail(), client.getTelephone(), prevEmail);
+	}
+
+	@Override
+	@Transactional
+	public void modifierAdresse(Client client) {
+		clientRepo.modifierAdresse(client.getAdresse().getAddrName(),
+				client.getAdresse().getAddress(),
+				client.getAdresse().getPostalCode(),
+				client.getAdresse().getCity(),
+				client.getAdresse().getCountry(),
+				client.getEmail());
 	}
 
 	@Override
 	public Client returnClient(String email) {
-		// TODO Auto-generated method stub
-		return null;
+		return clientRepo.getByEmail(email);
 	}
 
 	@Override
 	public Client returnClient(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return clientRepo.findById(id).get();
 	}
 
 }

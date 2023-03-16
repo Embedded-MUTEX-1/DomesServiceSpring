@@ -35,7 +35,7 @@
                     <a class="nav-link" href="/AideCompte">Aide</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/AideCompte.html">Compte</a>
+                    <a class="nav-link" href="/AideCompte">Compte</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="/Panier">Panier</a>

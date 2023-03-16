@@ -33,6 +33,7 @@ footer > div
 {
     width: 37px;
     border-radius: 50px;
+    height: unset;
 }
 .nav-item
 {

@@ -3,6 +3,8 @@ package fr.greta92.DomesServiceSpring.controller;
 import fr.greta92.DomesServiceSpring.entity.Client;
 import fr.greta92.DomesServiceSpring.entity.CompteEntity;
 import fr.greta92.DomesServiceSpring.entity.ConnexionEntity;
+import fr.greta92.DomesServiceSpring.exception.CompteDejaExistantException;
+import fr.greta92.DomesServiceSpring.exception.CompteNonDisponibleExecption;
 import fr.greta92.DomesServiceSpring.exception.WrongEmailOrPasswordExecption;
 import fr.greta92.DomesServiceSpring.service.GestionClient;
 import jakarta.servlet.http.HttpSession;
@@ -61,6 +63,9 @@ public class Connexion {
             client = gestionClient.login(connexion.getEmail(), connexion.getPassword());
         } catch (WrongEmailOrPasswordExecption e) {
             System.out.println("WrongEmailOrPasswordExecption");
+            return "pageConnexion";
+        } catch (CompteNonDisponibleExecption e) {
+            System.out.println("CompteNonDisponibleExecption");
             return "pageConnexion";
         }
 
